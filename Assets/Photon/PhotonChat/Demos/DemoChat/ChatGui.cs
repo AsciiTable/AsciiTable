@@ -39,7 +39,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 	public string[] ChannelsToJoinOnConnect; // set in inspector. Demo channels to join automatically.
 
-	public string[] FriendsList;
+	//public string[] FriendsList;
 
 	public int HistoryLengthToFetch; // set in inspector. Up to a certain degree, previously sent messages can be fetched for context
 
@@ -65,16 +65,16 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	public Toggle ChannelToggleToInstantiate; // set in inspector
 
 
-	public GameObject FriendListUiItemtoInstantiate;
+	//public GameObject FriendListUiItemtoInstantiate;
 
 	private readonly Dictionary<string, Toggle> channelToggles = new Dictionary<string, Toggle>();
 
-	private readonly Dictionary<string,FriendItem> friendListItemLUT =  new Dictionary<string, FriendItem>();
+	//private readonly Dictionary<string,FriendItem> friendListItemLUT =  new Dictionary<string, FriendItem>();
 
 	public bool ShowState = true;
-	public GameObject Title;
+	//public GameObject Title;
 	public Text StateText; // set in inspector
-	public Text UserIdText; // set in inspector
+	//public Text UserIdText; // set in inspector
 
 	// private static string WelcomeText = "Welcome to chat. Type \\help to list commands.";
 	private static string HelpText = "\n    -- HELP --\n" +
@@ -114,11 +114,11 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		DontDestroyOnLoad(this.gameObject);
 
-	    this.UserIdText.text = "";
+	    //this.UserIdText.text = "";
 	    this.StateText.text  = "";
 	    this.StateText.gameObject.SetActive(true);
-	    this.UserIdText.gameObject.SetActive(true);
-	    this.Title.SetActive(true);
+	    //this.UserIdText.gameObject.SetActive(true);
+	    //this.Title.SetActive(true);
 	    this.ChatPanel.gameObject.SetActive(false);
 	    this.ConnectingLabel.SetActive(false);
 
