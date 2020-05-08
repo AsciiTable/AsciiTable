@@ -74,7 +74,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	public bool ShowState = true;
 	//public GameObject Title;
 	public Text StateText; // set in inspector
-	//public Text UserIdText; // set in inspector
+	public Text UserIdText; // set in inspector
 
 	// private static string WelcomeText = "Welcome to chat. Type \\help to list commands.";
 	private static string HelpText = "\n    -- HELP --\n" +
@@ -114,10 +114,10 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		DontDestroyOnLoad(this.gameObject);
 
-	    //this.UserIdText.text = "";
+	    this.UserIdText.text = "";
 	    this.StateText.text  = "";
 	    this.StateText.gameObject.SetActive(true);
-	    //this.UserIdText.gameObject.SetActive(true);
+	    this.UserIdText.gameObject.SetActive(true);
 	    //this.Title.SetActive(true);
 	    this.ChatPanel.gameObject.SetActive(false);
 	    this.ConnectingLabel.SetActive(false);
@@ -373,7 +373,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 		this.ChatPanel.gameObject.SetActive(true);
 
-		if (this.FriendsList!=null  && this.FriendsList.Length>0)
+/*		if (this.FriendsList!=null  && this.FriendsList.Length>0)
 		{
 			this.chatClient.AddFriends(this.FriendsList); // Add some users to the server-list to get their status updates
 
@@ -392,7 +392,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 		if (this.FriendListUiItemtoInstantiate != null)
 		{
 			this.FriendListUiItemtoInstantiate.SetActive(false);
-		}
+		}*/
 
 
 		this.chatClient.SetOnlineStatus(ChatUserStatus.Online); // You can set your online state (without a mesage).
@@ -469,7 +469,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 	private void InstantiateFriendButton(string friendId)
 	{
-		GameObject fbtn = (GameObject)Instantiate(this.FriendListUiItemtoInstantiate);
+/*		GameObject fbtn = (GameObject)Instantiate(this.FriendListUiItemtoInstantiate);
 		fbtn.gameObject.SetActive(true);
 		FriendItem  _friendItem =	fbtn.GetComponent<FriendItem>();
 
@@ -477,7 +477,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 		fbtn.transform.SetParent(this.FriendListUiItemtoInstantiate.transform.parent, false);
 
-		this.friendListItemLUT[friendId] = _friendItem;
+		this.friendListItemLUT[friendId] = _friendItem;*/
 	}
 
 
@@ -551,11 +551,11 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 		Debug.LogWarning("status: " + string.Format("{0} is {1}. Msg:{2}", user, status, message));
 
-		if (this.friendListItemLUT.ContainsKey(user))
+/*		if (this.friendListItemLUT.ContainsKey(user))
 		{
 			FriendItem _friendItem = this.friendListItemLUT[user];
 			if ( _friendItem!=null) _friendItem.OnFriendStatusUpdate(status,gotMessage,message);
-		}
+		}*/
 	}
 
     public void OnUserSubscribed(string channel, string user)
