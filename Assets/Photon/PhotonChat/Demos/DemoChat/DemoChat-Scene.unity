@@ -722,6 +722,7 @@ MonoBehaviour:
   ChannelsToJoinOnConnect:
   - Region
   - Guild
+  - Global
   FriendsList: []
   HistoryLengthToFetch: 0
   missingAppIdErrorPanel: {fileID: 1860384066}
