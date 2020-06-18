@@ -149,8 +149,15 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 		this.chatClient = new ChatClient(this);
         #if !UNITY_WEBGL
         this.chatClient.UseBackgroundWorkerForSending = true;
-        #endif
-        this.chatClient.AuthValues = new AuthenticationValues(this.UserName);
+#endif
+		if (this.UserName.Equals("System")) {
+			this.UserName = ("<color=yellow>System</color>");
+		}
+		else if (this.UserName.Equals("ATC"))
+		{
+			this.UserName = ("<color=black>ATC</color>");
+		}
+		this.chatClient.AuthValues = new AuthenticationValues(this.UserName);
 		this.chatClient.ConnectUsingSettings(this.chatAppSettings);
 
 		this.ChannelToggleToInstantiate.gameObject.SetActive(false);
@@ -199,7 +206,8 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
 		{
-		    this.SendChatMessage(this.InputFieldChat.text);
+			this.InputFieldChat.text = "<color=black>" + this.InputFieldChat.text + "</color>";
+			this.SendChatMessage(this.InputFieldChat.text);
 			this.InputFieldChat.text = "";
 		}
 	}
@@ -208,7 +216,8 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		if (this.InputFieldChat != null)
 		{
-		    this.SendChatMessage(this.InputFieldChat.text);
+			this.InputFieldChat.text = "<color=black>" + this.InputFieldChat.text + "</color>";
+			this.SendChatMessage(this.InputFieldChat.text);
 			this.InputFieldChat.text = "";
 		}
 	}
