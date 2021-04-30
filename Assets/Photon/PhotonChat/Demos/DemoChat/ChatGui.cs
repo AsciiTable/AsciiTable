@@ -151,11 +151,11 @@ public class ChatGui : MonoBehaviour, IChatClientListener
         this.chatClient.UseBackgroundWorkerForSending = true;
 #endif
 		if (this.UserName.Equals("System")) {
-			this.UserName = ("<color=yellow>System</color>");
+			this.UserName = ("<color=yellow>System:</color>");
 		}
 		else if (this.UserName.Equals("ATC"))
 		{
-			this.UserName = ("<color=black>ATC</color>");
+			this.UserName = ("<color=black>ATC:</color>");
 		}
 		this.chatClient.AuthValues = new AuthenticationValues(this.UserName);
 		this.chatClient.ConnectUsingSettings(this.chatAppSettings);
@@ -425,7 +425,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 		// in this demo, we simply send a message into each channel. This is NOT a must have!
 		foreach (string channel in channels)
 		{
-			this.chatClient.PublishMessage(channel, "says 'hi'."); // you don't HAVE to send a msg on join but you could.
+			//this.chatClient.PublishMessage(channel, "says 'hi'."); // you don't HAVE to send a msg on join but you could.
 
 			if (this.ChannelToggleToInstantiate != null)
 			{
