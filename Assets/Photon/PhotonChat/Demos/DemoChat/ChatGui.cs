@@ -155,7 +155,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 		}
 		else if (this.UserName.Equals("ATC"))
 		{
-			this.UserName = ("<color=black>ATC:</color>");
+			this.UserName = ("<color=white>ATC:</color>");
 		}
 		this.chatClient.AuthValues = new AuthenticationValues(this.UserName);
 		this.chatClient.ConnectUsingSettings(this.chatAppSettings);
@@ -206,7 +206,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
 		{
-			this.InputFieldChat.text = "<color=black>" + this.InputFieldChat.text + "</color>";
+			this.InputFieldChat.text = "<color=white>" + this.InputFieldChat.text + "</color>";
 			this.SendChatMessage(this.InputFieldChat.text);
 			this.InputFieldChat.text = "";
 		}
@@ -216,7 +216,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		if (this.InputFieldChat != null)
 		{
-			this.InputFieldChat.text = "<color=black>" + this.InputFieldChat.text + "</color>";
+			this.InputFieldChat.text = "<color=white>" + this.InputFieldChat.text + "</color>";
 			this.SendChatMessage(this.InputFieldChat.text);
 			this.InputFieldChat.text = "";
 		}
